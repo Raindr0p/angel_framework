@@ -2,7 +2,7 @@
 Angel PHP framework is a rapid **PHP+MySQL(MariaDB)** web service builder. Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
 
 
-## Code philosophy: do more with a flow
+## Philosophy: do more with a flow
 **Code block style:**
 ```PHP
   class::method('trigger_or_input',function($input){
@@ -147,8 +147,34 @@ angel
 |  ├- json //for json file
 |  └- ... //reserved for future file type
 |
-├- block //methods live here
-|  ├- bootstrap.php //autoloader
-|  ├- core //core methods
-|  └- plug //plugins
+└- block //methods live here
+   ├- bootstrap.php //autoloader
+   ├- core //core methods
+   └- plug //plugins
 ```
+
+Therefor, upload methods only stores file in ./file folder
+```PHP
+upload::img($_FILES['a_img'],[
+  'prefix'=>'pre_',
+  'limit'=>300,
+  'quality'=>70
+]);
+// returns a name (ex. pre_AKdSkDF2s32sa.jpg)
+// file stored in ./file/img
+// image compressed 70%
+// if image is larger than 300KB, return false
+// second parameter is optional
+```
+
+use cURL to visit an outside resource:
+```PHP
+curl::get('an_url');
+curl::post('an_url', 'post_data_str');
+```
+
+If you want to write your own methods, you can drop them in **./plug** folder and:
+```PHP
+plug::in('your_plugin_name');
+```
+remember Angel's own code philosophy. Fly with Angel.
