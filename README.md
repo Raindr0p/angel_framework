@@ -1,19 +1,36 @@
 ## Angel PHP framework
-A rapid PHP+MySQL(MariaDB) web service builder.
+A rapid **PHP+MySQL(MariaDB)** web service builder.
+
 
 ## Simple for simple projects
 Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
+
+
+## Code philosophy: Do more with a **flow**
+**Code block:**
+```PHP
+  class::method('trigger_or_input',function($input){
+    //your code here
+    return $output;
+  });
+```
+
+**Workflow:**
+```PHP
+  class::method_head()->work_1()->work_2()->work_3()->...->end();
+```
+
 
 ## Install
 - Angel supports PHP 5.4+
 - Drag files in
 - Done
 
-## Build:: a simple get request webpage
+
+## **build::get()** a simple get request webpage
+Open file get.php in folder ./build
 ```PHP
 <?php
-  //code in build/get.php
-  //build::get() method only response to get request
 
   build::get('simple/demo',function(){
     //your workspace
@@ -23,9 +40,9 @@ Kitchen-sink frameworks require huge personal investments - both in learning and
       'foot'=>'demo.foot.php'
     ]);
     view::push(['hello','world']);
-  });
+  }); //build::get() method only response to get request
 ```
-Now create files 'demo.head.php'/'demo.body.php'/'demo.foot.php' respectively in folder view/head, view/body, view/foot. Array ['hello','world'] has been pushed to all three view files and can be fetch by the variable $view.
+Now create files **demo.head.php/demo.body.php/demo.foot.php** respectively in folder **view/head, view/body, view/foot**. Array **['hello','world']** has been pushed to all three view files and can be fetch by the variable $view.
 ```PHP
 <!--in demo.body.php-->
 <?=$view[0].'#'.$view[1];?>
