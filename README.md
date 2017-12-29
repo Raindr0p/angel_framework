@@ -59,7 +59,9 @@ Open file **post.php** in folder **./build**
     jump::to('http://www.google.com');
   }); //build::post() method only response to post request
 ```
-As you can see, Angel supports variables in uri. Remember to pass them in your build:: code block. **sql::** workflow is SQL command like. You can write them like this:
+As you can see, Angel supports variables in uri. Remember to pass them in your build:: code block.
+
+**sql::** workflow is SQL command like. You can write them like these:
 ```PHP
 sql::select('table_name')->where('a=? and b=? or c="1"',[$a,$b])->order('a')->by('desc')->limit(5);
 //returns a result array or false if encounters error
@@ -70,10 +72,10 @@ sql::update('table_name')->this([
   'a'=>$update_data,
   'b'=>$update_data
 ])->where('a="hi"')->limit([2,6]);
- 
+
 sql::insert('table_name')->this(['data_a','data_b'],['data_c','data_d']);
 ```
-Though remember to config your database connection in build/config.php. For jump::, besides to($url) method, Angel provides the following as well.
+Though remember to config your database connection in build/config.php. For **jump::**, besides **jump::to($url)** method, Angel provides the following as well.
 ```PHP
 jump::back(-2); //jump back to history visit in -2
 jump::refresh();
