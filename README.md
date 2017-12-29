@@ -114,4 +114,16 @@ str::split('hello world',' '); //returns ['hello','world']
 str::cut('hello world',7); //returns 'hello w'
 ```
 
-## cURL and upload
+## is:: is for logic
+```PHP
+if(is::mobile()):
+//true if user is using a phone
+
+if(is::empty($array_file_or_str)):
+//true if []/''/0 or $_FILES['a_file'] does not exists
+
+is::array($array);
+is::str($str);
+is::int($int);
+is::float($float);
+```
