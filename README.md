@@ -1,12 +1,15 @@
-##Angel PHP framework
+## Angel PHP framework
 A rapid PHP+MySQL(MariaDB) web service builder.
-##Simple for simple projects
+
+## Simple for simple projects
 Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
-##Install
+
+## Install
 - Angel supports PHP 5.4+
 - Drag files in
 - Done
-##Build:: a simple get request webpage
+
+## Build:: a simple get request webpage
 ```PHP
 <?php
   //code in build/get.php
@@ -28,7 +31,8 @@ Now create files 'demo.head.php'/'demo.body.php'/'demo.foot.php' respectively in
 <?=$view[0].'#'.$view[1];?>
 ```
 Now visit http://www.yourweb.com/simple/demo, you can see the result.
-##Post, jump:: and sql::
+
+## Post, jump:: and sql::
 ```PHP
 <?php
   //code in build/post.php
@@ -56,7 +60,8 @@ Though remember to config your database connection in build/config.php. For jump
 jump::back(-2); //jump back to history visit in -2
 jump::refresh();
 ```
-##Array and string
+
+## Array and string
 Angel provides a list of useful array and string operations:
 ```PHP
 //ary::
@@ -88,4 +93,5 @@ str::split('hello world',' '); //returns ['hello','world']
 
 str::cut('hello world',7); //returns 'hello w'
 ```
-##cURL and upload
+
+## cURL and upload
