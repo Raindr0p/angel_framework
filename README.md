@@ -37,7 +37,7 @@ Open file **get.php** in folder **./build**
     view::push(['hello','world']);
   }); //build::get() method only response to get request
 ```
-Create files **demo.head.php/demo.body.php/demo.foot.php** respectively in folder **head/body/foot**. Array('hello','world') has been pushed to all three view files and can be fetch by the variable **$view**.
+Create files **demo.head.php/demo.body.php/demo.foot.php** respectively in folder **head/body/foot** under **./view**. Array('hello','world') has been pushed to all three view files and can be fetch by the variable **$view**.
 
 In **./view/demo.body.php**, write:
 ```PHP
@@ -153,7 +153,7 @@ angel
    └- plug //plugins
 ```
 
-Therefor, upload methods only stores file in ./file folder
+Therefor, upload methods only stores file in **./file** folder
 ```PHP
 upload::img($_FILES['a_img'],[
   'prefix'=>'pre_',
@@ -171,6 +171,7 @@ use cURL to visit an outside resource:
 ```PHP
 curl::get('an_url');
 curl::post('an_url', 'post_data_str');
+//both return a string
 ```
 
 If you want to write your own methods, you can drop them in **./plug** folder and:
