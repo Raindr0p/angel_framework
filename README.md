@@ -2,8 +2,8 @@
 Angel PHP framework is a rapid **PHP+MySQL(MariaDB)** web service builder. Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
 
 
-## Code philosophy: Do more with a **flow**
-**Code block:**
+## Code philosophy: do more with a flow
+**Code block style:**
 ```PHP
   class::method('trigger_or_input',function($input){
     //your code here
@@ -11,7 +11,7 @@ Angel PHP framework is a rapid **PHP+MySQL(MariaDB)** web service builder. Kitch
   });
 ```
 
-**Workflow:**
+**Workflow style:**
 ```PHP
   class::method_head()->work_1()->work_2()->work_3()->...->end();
 ```
@@ -37,12 +37,12 @@ Open file **get.php** in folder **./build**
     view::push(['hello','world']);
   }); //build::get() method only response to get request
 ```
-Create files **demo.head.php/demo.body.php/demo.foot.php** respectively in folder **head/body/foot**. **array('hello','world')** has been pushed to all three view files and can be fetch by the variable **$view**.
+Create files **demo.head.php/demo.body.php/demo.foot.php** respectively in folder **head/body/foot**. Array('hello','world') has been pushed to all three view files and can be fetch by the variable **$view**.
 
 In **./view/demo.body.php**, write:
 ```PHP
-<?=
-  $view[0].'#'.$view[1];
+<?php
+  echo $view[0].'#'.$view[1];
   //echos hello#world
 ?>
 ```
@@ -59,15 +59,18 @@ Open file **post.php** in folder **./build**
     jump::to('http://www.google.com');
   }); //build::post() method only response to post request
 ```
-As you can see, Angel supports variables in uri. Remember to pass them in your build:: code block. sql:: class is SQL command like. You can write them like this:
+As you can see, Angel supports variables in uri. Remember to pass them in your build:: code block. **sql::** workflow is SQL command like. You can write them like this:
 ```PHP
 sql::select('table_name')->where('a=? and b=? or c="1"',[$a,$b])->order('a')->by('desc')->limit(5);
 //returns a result array or false if encounters error
+
 sql::delete('table_name')->where('a="hi"')->limit([2,6]);
+
 sql::update('table_name')->this([
   'a'=>$update_data,
   'b'=>$update_data
 ])->where('a="hi"')->limit([2,6]);
+ 
 sql::insert('table_name')->this(['data_a','data_b'],['data_c','data_d']);
 ```
 Though remember to config your database connection in build/config.php. For jump::, besides to($url) method, Angel provides the following as well.
