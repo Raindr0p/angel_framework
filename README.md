@@ -1,5 +1,5 @@
 ## Simple for simple projects
-Angel PHP framework, a rapid **PHP+MySQL(MariaDB)** web service builder. Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
+Angel PHP framework is a rapid **PHP+MySQL(MariaDB)** web service builder. Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
 
 
 ## Code philosophy: Do more with a **flow**
