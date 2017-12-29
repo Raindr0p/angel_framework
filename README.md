@@ -1,9 +1,5 @@
-## Angel PHP framework
-A rapid **PHP+MySQL(MariaDB)** web service builder.
-
-
 ## Simple for simple projects
-Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
+Angel PHP framework, a rapid **PHP+MySQL(MariaDB)** web service builder. Kitchen-sink frameworks require huge personal investments - both in learning and developing. We build Angel for developers who find solutions like Laravel and Yii being overkilled to their projects.
 
 
 ## Code philosophy: Do more with a **flow**
@@ -28,10 +24,9 @@ Kitchen-sink frameworks require huge personal investments - both in learning and
 
 
 ## **build::get()** a simple get request webpage
-Open file get.php in folder ./build
+Open file **get.php** in folder **./build**
 ```PHP
 <?php
-
   build::get('simple/demo',function(){
     //your workspace
     view::config([
@@ -42,24 +37,27 @@ Open file get.php in folder ./build
     view::push(['hello','world']);
   }); //build::get() method only response to get request
 ```
-Now create files **demo.head.php/demo.body.php/demo.foot.php** respectively in folder **view/head, view/body, view/foot**. Array **['hello','world']** has been pushed to all three view files and can be fetch by the variable $view.
+Create files **demo.head.php/demo.body.php/demo.foot.php** respectively in folder **head/body/foot**. **array('hello','world')** has been pushed to all three view files and can be fetch by the variable **$view**.
+
+In **./view/demo.body.php**, write:
 ```PHP
-<!--in demo.body.php-->
-<?=$view[0].'#'.$view[1];?>
+<?=
+  $view[0].'#'.$view[1];
+  //echos hello#world
+?>
 ```
 Now visit http://www.yourweb.com/simple/demo, you can see the result.
 
-## Post, jump:: and sql::
+
+## build::post(), jump:: and sql::
+Open file **post.php** in folder **./build**
 ```PHP
 <?php
-  //code in build/post.php
-  //build::post() method only response to post request
-
   build::post('route/[a]/[b]',function($a,$b){
     //your workspace
     $out = sql::select('table_name')->where('a=? and b=?',[$a,$b])->order('a')->by('desc')->limit(5);
     jump::to('http://www.google.com');
-  });
+  }); //build::post() method only response to post request
 ```
 As you can see, Angel supports variables in uri. Remember to pass them in your build:: code block. sql:: class is SQL command like. You can write them like this:
 ```PHP
