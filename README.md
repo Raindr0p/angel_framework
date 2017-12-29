@@ -116,14 +116,39 @@ str::cut('hello world',7); //returns 'hello w'
 
 ## is:: is for logic
 ```PHP
-if(is::mobile()):
+is::mobile()
 //true if user is using a phone
 
-if(is::empty($array_file_or_str)):
-//true if []/''/0 or $_FILES['a_file'] does not exists
+is::empty($array_file_or_str)
+//true if []/['','']/''/0 or $_FILES['a_file'] does not exists
 
 is::array($array);
 is::str($str);
 is::int($int);
 is::float($float);
+```
+## File system, plugin, cURL and upload
+Angel has a standard file system:
+```
+angel
+├- build
+|  ├- get.php //build::get() workspace
+|  ├- post.php //build::post() workspace
+|  └- config.php //configs
+|
+├- view
+|  ├- head
+|  ├- body
+|  ├- foot
+|  └- file //site resources
+|
+├- file //all upload goes here
+|  ├- img //for img file
+|  ├- json //for json file
+|  └- ... //reserved for future file type
+|
+├- block //methods live here
+|  ├- bootstrap.php //autoloader
+|  ├- core //core methods
+|  └- plug //plugins
 ```
