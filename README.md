@@ -119,10 +119,10 @@ str::cut('hello world',7); //returns 'hello w'
 is::mobile()
 //true if user is using a phone
 
-is::empty($array_file_or_str)
-//true if []/['','']/''/0 or $_FILES['a_file'] does not exists
+is::set($array_file_or_str)
+//false if []/['','']/''/0 or $_FILES['a_file'] does not exists
 
-is::array($array);
+is::ary($array);
 is::str($str);
 is::int($int);
 is::float($float);
