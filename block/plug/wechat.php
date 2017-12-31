@@ -16,7 +16,7 @@
 
     private static $re_event = [];
 
-    public static function setup($token){
+    public static function setup(){
       echo user::get('echostr');
     }
 

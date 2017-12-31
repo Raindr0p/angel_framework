@@ -23,7 +23,7 @@
   |
   | if input is array:
   |
-  | if(is::array($input)){
+  | if(is::ary($input)){
   |   //your code here
   | }
   |
@@ -62,25 +62,25 @@
       return strpos($agent, 'mobile') || strpos($agent, 'android') || strpos($agent, 'iphone');
     }
 
-    public static function set($in_p=null) {
-      $flag = true;
+    public static function empty($in_p=null) {
+      $flag = false;
       if(is::ary($in_p)){
         if(array_key_exists('error',$in_p)){
           if($in_p['error'] === UPLOAD_ERR_NO_FILE){
-            $flag = false;
+            $flag = true;
           } //if $_FILES is empty
         }elseif(empty($in_p)){
-          $flag = false; //if array as whole is empty
+          $flag = true; //if array as whole is empty
         }else{
           foreach ($in_p as $value) {
             if(empty($value)){
-              $flag = false;
+              $flag = true;
             }
           } //if array item is empty
         }
       }else{
         if(empty($in_p)){
-          $flag = false;
+          $flag = true;
         } //if str is empty
       }
       return $flag;
